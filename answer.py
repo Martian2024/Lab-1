@@ -22,16 +22,16 @@ print(' ' + black_bachground + ' ' * 11 + white_background + ' ')
 print(white_background + ' ' * 13)
 print(reset + '')
 
-print('  y=x^0.5')
+print('\t\ty=x^0.5')
 matrix_width, matrix_height = 10, 10
 for y in range(matrix_height - 1, -1, -1):
-    output = ''
+    output = str(y) + '|'
     for x in range(matrix_width):
         if y == ceil(sqrt(x)):
-            output += '*'
+            output += red_text + '*' + reset
         else:
             output += ' '
-    print(str(y) + '|' + output)
+    print(output)
 print('  ' + '‾' * 10)
 print('  0123456789')
 print()
@@ -40,7 +40,7 @@ with open('sequence.txt') as file:
     nums = list(map(lambda x: abs(float(x)), file.readlines(0)))
     sum1 = sum(nums[:125])
     sum2 = sum(nums[125:251])
-    print(f'Процентное отношение сумм первых 125 чисел и вторых 125 числел:{int((sum1 / sum2) * 100)}% ' + '█' * (int((sum1 / sum2) * 100) // 10) + '░' * (10 - (int((sum1 / sum2) * 100) // 10)))
+    print(f'Процентное отношение сумм первых 125 чисел и вторых 125 чисел:{int((sum1 / sum2) * 100)}% ' + '█' * (int((sum1 / sum2) * 100) // 10) + '░' * (10 - (int((sum1 / sum2) * 100) // 10)))
 
 print()
 input('Для выхода нажмите Enter')
