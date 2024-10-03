@@ -1,26 +1,26 @@
 #вариант задания - 4
 from math import ceil, sqrt
 
-white_background = '\u001b[47m'
-black_bachground = '\u001b[40m'
-red_background = '\u001b[41m'
-red_text = '\u001b[31m'
-reset = '\u001b[0m'
+WHITE_BACKGROUND = '\u001b[47m'
+BLACK_BACKGROUND = '\u001b[40m'
+RED_BACKGRAUND = '\u001b[41m'
+RED_TEXT = '\u001b[31m'
+RESET = '\u001b[0m'
 
 width, height = 10, 4
-print(white_background + '\n'.join([' ' * width for _ in range(height // 2)]))
-print(red_background + '\n'.join([' ' * width for _ in range(height // 2)]))
-print(reset + red_text + 'Bobr kurwa')
+print(WHITE_BACKGROUND + '\n'.join([' ' * width for _ in range(height // 2)]))
+print(RED_BACKGRAUND + '\n'.join([' ' * width for _ in range(height // 2)]))
+print(RESET + RED_TEXT + 'Bobr kurwa' + RESET)
 print()
 
-print(white_background + ' ' * 13)
-print(' ' + black_bachground + ' ' * 11 + white_background + ' ')
-print(' ' * 6 + black_bachground + ' ' + white_background + ' ' * 6)
-print(' ' + black_bachground + ' ' * 11 + white_background + ' ')
-print(' ' * 3 + black_bachground + ' ' + white_background + ' ' * 5 + black_bachground + ' ' + white_background + ' ' * 3)
-print(' ' + black_bachground + ' ' * 11 + white_background + ' ')
-print(white_background + ' ' * 13)
-print(reset + '')
+print(WHITE_BACKGROUND + ' ' * 13 + RESET)
+print(WHITE_BACKGROUND + ' ' + BLACK_BACKGROUND + ' ' * 11 + WHITE_BACKGROUND + ' ' + RESET)
+print(WHITE_BACKGROUND + ' ' * 6 + BLACK_BACKGROUND + ' ' + WHITE_BACKGROUND + ' ' * 6 + RESET)
+print(WHITE_BACKGROUND + ' ' + BLACK_BACKGROUND + ' ' * 11 + WHITE_BACKGROUND + ' ' + RESET)
+print(WHITE_BACKGROUND + ' ' * 3 + BLACK_BACKGROUND + ' ' + WHITE_BACKGROUND + ' ' * 5 + BLACK_BACKGROUND + ' ' + WHITE_BACKGROUND + ' ' * 3 + RESET)
+print(WHITE_BACKGROUND + ' ' + BLACK_BACKGROUND + ' ' * 11 + WHITE_BACKGROUND + ' ' + RESET)
+print(WHITE_BACKGROUND + ' ' * 13 + RESET)
+print(RESET + '')
 
 print('\t\ty=x^0.5')
 matrix_width, matrix_height = 10, 10
@@ -28,7 +28,7 @@ for y in range(matrix_height - 1, -1, -1):
     output = str(y) + '|'
     for x in range(matrix_width):
         if y == ceil(sqrt(x)):
-            output += red_text + '*' + reset
+            output += RED_TEXT + '*' + RESET
         else:
             output += ' '
     print(output)
@@ -37,10 +37,9 @@ print('  0123456789')
 print()
 
 with open('sequence.txt') as file:
-    nums = list(map(lambda x: abs(float(x)), file.readlines(0)))
-    sum1 = sum(nums[:125])
-    sum2 = sum(nums[125:251])
-    print(f'Процентное отношение сумм первых 125 чисел и вторых 125 чисел:{int((sum1 / sum2) * 100)}% ' + '█' * (int((sum1 / sum2) * 100) // 10) + '░' * (10 - (int((sum1 / sum2) * 100) // 10)))
+    nums = list(map(lambda x: abs(float(x)), file.readlines()))
+    sum1 = sum(nums[:len(nums) // 2])
+    print(f'Процентное отношение сумм первых 125 чисел и вторых 125 чисел:{(sum1 / sum(nums)) * 100}% ' + '█' * (int((sum1 / sum(nums)) * 100) // 10) + '░' * (10 - (int((sum1 / sum(nums)) * 100) // 10)))
 
 print()
 input('Для выхода нажмите Enter')
