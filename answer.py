@@ -8,8 +8,8 @@ RED_TEXT = '\u001b[31m'
 RESET = '\u001b[0m'
 
 width, height = 10, 4
-print(WHITE_BACKGROUND + '\n'.join([' ' * width for _ in range(height // 2)]))
-print(RED_BACKGRAUND + '\n'.join([' ' * width for _ in range(height // 2)]))
+print(WHITE_BACKGROUND + '\n'.join([' ' * width for _ in range(height // 2)]) + RESET)
+print(RED_BACKGRAUND + '\n'.join([' ' * width for _ in range(height // 2)]) + RESET)
 print(RESET + RED_TEXT + 'Bobr kurwa' + RESET)
 print()
 
